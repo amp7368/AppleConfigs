@@ -80,6 +80,7 @@ compileJava {
 shadowJar {
     dependsOn(relocateShadowJar)
     outputs.upToDateWhen { false }
+    archiveClassifier.set('')
 }
 
 
