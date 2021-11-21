@@ -1,0 +1,9 @@
+name: AppleConfigs
+version: 1.0
+main: voltskiya.apple.configs.ConfigVoltskiyaPlugin
+api-version: 1.16
+authors: [ appleptr16 ]
+softdepend: [ AppleUtilityLibraries ]
+commands:
+  config:
+    description: "set properties about plugins"
