@@ -5,33 +5,39 @@ plugins {
     id 'java-library'
     id 'maven-publish'
 }
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
 
-repositories {
-    mavenCentral()
-    maven {
-        url 'https://papermc.io/repo/repository/maven-public/'
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://papermc.io/repo/repository/maven-public/'
+        }
+        maven {
+            url 'https://repo.aikar.co/content/groups/aikar/'
+        }
+        flatDir {
+            dirs 'lib'
+        }
+        maven {
+            url 'https://jitpack.io'
+        }
     }
-    maven {
-        url 'https://repo.aikar.co/content/groups/aikar/'
+    configurations.all {
+        resolutionStrategy.cacheDynamicVersionsFor(20, 'seconds')
+        resolutionStrategy.cacheChangingModulesFor 20, 'seconds'
     }
-    flatDir {
-        dirs 'lib'
-    }
-    maven {
-        url 'https://jitpack.io'
-    }
-}
-configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor(20, 'seconds')
-    resolutionStrategy.cacheChangingModulesFor 20, 'seconds'
-}
 
-dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT'
-    compileOnly 'com.github.amp7368.YmlConfigManager:ycm-jar:Ycm-v1.2'
-    compileOnly 'com.github.amp7368:AppleUtilities:v1.1'
-    compileOnly 'com.github.amp7368.PluginManagerCreator:pmc-jar:Pmc-v1.8'
-    compileOnly 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
+    dependencies {
+        compileOnly 'io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT'
+        compileOnly 'com.github.amp7368.YmlConfigManager:ycm-jar:Ycm-v1.2'
+        compileOnly 'com.github.amp7368:AppleUtilities:v1.1'
+        compileOnly 'com.github.amp7368.PluginManagerCreator:pmc-jar:Pmc-v1.8'
+        compileOnly 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
+    }
 }
 if (new File('private.build.gradle').exists())
     apply from: 'private.build.gradle'

@@ -33,7 +33,6 @@ public class ConfigVoltskiyaSaveableSingleton<Config> extends ConfigVoltskiyaSav
         this.createEmptyInstance = builder.createEmptyInstance;
         this.configClass = builder.configClass;
         this.module = builder.module;
-        System.out.println(this.module.getName());
         this.name = builder.getName();
         this.fileToSave = builder.getFileToSave();
         shouldBeManaged = builder.shouldBeManaged;

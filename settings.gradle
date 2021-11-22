@@ -1,2 +1,3 @@
 rootProject.name = 'AppleConfigs'
+include 'example'
 

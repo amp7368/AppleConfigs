@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'apple.configs'
+version 'v1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly project(':')
+}
+

@@ -1,0 +1,9 @@
+name: AppleConfigsExample
+version: 1.0
+main: voltskiya.apple.configs.ExamplePlugin
+api-version: 1.16
+authors: [ appleptr16 ]
+softdepend: [ AppleConfigs ]
+commands:
+  config:
+    description: "example plugin to set properties about plugins"
